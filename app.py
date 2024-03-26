@@ -3,10 +3,10 @@ from flask import Flask
 
 app = Flask(__name__)
 
+# hello world index page
 @app.route('/')
 def hello_world():
     return 'Hello World from Amber in 3308.'
-
 
 # connection to database
 @app.route('/db_test')
@@ -15,7 +15,7 @@ def testing():
 	conn.close()
 	return "Database Connection Successful"
 
-
+# create basketball table
 @app.route('/db_create')
 def creating():
 	conn = psycopg2.connect("postgres://tin_db_user:tTiToULPV8Lk0GywTYolmJYineD40MUb@dpg-co0ekkol5elc738o47p0-a/tin_db")
@@ -33,7 +33,7 @@ def creating():
 	conn.close()
 	return "Basketball Table Successfully Created"
 
-
+# insert values into basketball table
 @app.route('/db_insert')
 def inserting():
 	conn = psycopg2.connect("postgres://tin_db_user:tTiToULPV8Lk0GywTYolmJYineD40MUb@dpg-co0ekkol5elc738o47p0-a/tin_db")
@@ -50,7 +50,7 @@ def inserting():
 	conn.close()
 	return "Basketball Table Populated"
 
-
+# query all the data from the table
 @app.route('/db_select')
 def selecting():
 	conn = psycopg2.connect("postgres://tin_db_user:tTiToULPV8Lk0GywTYolmJYineD40MUb@dpg-co0ekkol5elc738o47p0-a/tin_db")
@@ -58,9 +58,11 @@ def selecting():
 	cur.execute('''
 	SELECT * FROM Basketball;
 	''')
+	# capture results of query
 	records = cur.fetchall()
 	conn.close()
 	response_string="" 
+	# format records as a table
 	response_string+="<table>"
 	for player in records:
 		response_string+="<tr>"
@@ -70,7 +72,7 @@ def selecting():
 	response_string+="<table>"
 	return response_string
 
-
+# drop basketball table from the database
 @app.route('/db_drop')
 def dropping():
 	conn = psycopg2.connect("postgres://tin_db_user:tTiToULPV8Lk0GywTYolmJYineD40MUb@dpg-co0ekkol5elc738o47p0-a/tin_db")
