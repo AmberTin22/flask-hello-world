@@ -19,6 +19,7 @@ def testing():
 @app.route('/db_create')
 def creating():
 	conn = psycopg2.connect("postgres://tin_db_user:tTiToULPV8Lk0GywTYolmJYineD40MUb@dpg-co0ekkol5elc738o47p0-a/tin_db")
+	cur = conn.cursor()
 	cur.execute('''
     CREATE TABLE IF NOT EXISTS Basketball(
         First varchar(255),
@@ -27,7 +28,7 @@ def creating():
         Name varchar(255),
         Number int
         );
-''')
+	''')
 	conn.commit()
 	conn.close()
 	return "Basketball Table Successfully Created"
