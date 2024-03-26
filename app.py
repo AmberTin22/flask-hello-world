@@ -17,7 +17,7 @@ def testing():
 
 
 @app.route('/db_create')
-def testing():
+def creating():
 	conn = psycopg2.connect("postgres://tin_db_user:tTiToULPV8Lk0GywTYolmJYineD40MUb@dpg-co0ekkol5elc738o47p0-a/tin_db")
 	cur.execute('''
     CREATE TABLE IF NOT EXISTS Basketball(
