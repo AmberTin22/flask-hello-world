@@ -3,10 +3,21 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
+# URLs for website pages, listed in index page
+pages = [
+    {"Index": "Page 1", "url": "/"},
+    {"Database Test": "Page 2", "url": "/db_test"},
+    {"Create Table": "Page 3", "url": "/db_create"},
+	{"Insert Table Values": "Page 4", "url": "/db_insert"},
+	{"Select Table Values": "Page 5", "url": "/db_select"},
+	{"Drop Table": "Page 6", "url": "/db_drop"}
+]
+
 # hello world index page
 @app.route('/')
 def hello_world():
-    return 'Hello World from Amber in 3308.'
+    return 'Hello World from Amber in 3308.' + render_template('index.html', pages=pages)
 
 # connection to database
 @app.route('/db_test')
