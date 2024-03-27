@@ -8,12 +8,12 @@ app = Flask(__name__)
 
 # URLs for website pages, listed in index page
 pages = [
-    {"Index": "Page 1", "url": "/"},
-    {"Database Test": "Page 2", "url": "/db_test"},
-    {"Create Table": "Page 3", "url": "/db_create"},
-	{"Insert Table Values": "Page 4", "url": "/db_insert"},
-	{"Select Table Values": "Page 5", "url": "/db_select"},
-	{"Drop Table": "Page 6", "url": "/db_drop"}
+    {"name": "Index", "url": "/"},
+    {"name": "Database Test", "url": "/db_test"},
+    {"name": "Create Table", "url": "/db_create"},
+	{"name": "Insert Table Values", "url": "/db_insert"},
+	{"name": "Select Table Values", "url": "/db_select"},
+	{"name": "Drop Table", "url": "/db_drop"}
 ]
 
 # hello world index page
