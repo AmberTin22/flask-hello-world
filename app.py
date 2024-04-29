@@ -1,4 +1,4 @@
-import psycopg2
+"""import psycopg2
 from flask import Flask
 from flask import Flask, render_template
 
@@ -63,6 +63,7 @@ def inserting():
 	conn.close()
 	return "Basketball Table Populated"
 
+
 # query all the data from the table
 @app.route('/db_select')
 def selecting():
@@ -96,3 +97,4 @@ def dropping():
 	conn.commit()
 	conn.close()
 	return "Basketball Table Successfully Dropped"
+"""
